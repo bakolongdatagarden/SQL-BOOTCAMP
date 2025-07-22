@@ -23,5 +23,18 @@ SELECT database(); # we're currently using 'nyambia'
 USE seed_library; # let's now use 'seed_library' (re-run previous command to verify)
 
 
+-- =============================================
+-- SECTION: Introducing Tables
+-- =============================================
+
+/* 
+◘ Tables are what we put in our databases to hold data
+◘ They are the true heart of SQL: DB's are made up of lots of tables 
+◘ They describe the format and shape of our data
+◘ Columns & Rows
+	○ Columns are the headers
+	○ Rows are the data entries 
+◘ But before we get more into tables ... we need to discuss types of data ... 
+*/
 
 
