@@ -1,3 +1,7 @@
+-- =============================================
+-- SECTION: Create, Drop, Use
+-- =============================================
+
 # See what databases current exist
 SHOW DATABASES;
 
@@ -17,7 +21,6 @@ SELECT database(); # verify we're using the correct database
 CREATE DATABASE seed_library;
 SELECT database(); # we're currently using 'nyambia'
 USE seed_library; # let's now use 'seed_library' (re-run previous command to verify)
-
 
 
 
