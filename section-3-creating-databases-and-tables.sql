@@ -98,7 +98,7 @@ CREATE TABLE dogs (
     
 	SELECT database();
   
-  -- =================================================
+-- =================================================
 -- SECTION: Creating Tables: How do We Know it Worked?
 -- ===================================================
     
@@ -117,7 +117,7 @@ CREATE TABLE dogs (
     DESC cats;
     DESC dogs;
     
-  -- =================================================
+-- =================================================
 -- SECTION: Dropping Tables
 -- ===================================================
 
@@ -125,3 +125,24 @@ CREATE TABLE dogs (
 DROP TABLE cats;
 SHOW TABLES; # now we only have dogs
 
+-- =================================================
+-- SECTION: Tables Basic Activity 
+-- ===================================================
+/*
+INSTRUCTIONS:
+◘ Create a pastries table 
+	○ It should include 2 columns: name and quantity
+    ○ name is 50 characters max 
+    ○ Inspect your table / columns in the CLI
+*/
+
+CREATE TABLE pastries (
+	name VARCHAR(50),
+    quantity INT
+);
+
+SHOW TABLES;
+DESC pastries;
+
+# Now let's delete the table
+DROP TABLE pastries;
