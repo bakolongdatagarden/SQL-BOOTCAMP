@@ -257,11 +257,22 @@ Importance of Primary Keys:
 ◘ We declare a column a primary key column 
 */
 
-CREATE TABLE unique_cats (
-	cat_id INT NOT NULL PRIMARY KEY,
-    name VARCHAR(100),
-    age INT
+-- CREATE TABLE unique_cats (
+-- 	cat_id INT NOT NULL PRIMARY KEY,
+--     name VARCHAR(100),
+--     age INT
+-- );
+
+DROP TABLE unique_cats;
+
+-- Another way 
+CREATE TABLE unique_cats(
+	cat_id INT,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    PRIMARY KEY (cat_id)
 );
+
 
 DESC unique_cats; # we'll see that 'Key' column is set to PRI (primary)
 
