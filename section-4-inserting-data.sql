@@ -41,6 +41,25 @@ VALUES ("Jenkins", 7);
 -- "give me everything you have from the cats table"
 SELECT * FROM cats; 
 
+-- =============================================
+-- Multiple Inserts
+-- =============================================
 
+-- We can switch the order of columns with insert, just be consistent with values
 
+INSERT INTO cats (age, name)
+VALUES (2, "Beth");
 
+SELECT * FROM cats;
+
+-- Insert multiple values at once
+
+INSERT INTO cats (name, age)
+VALUES
+	("Meatball", 5),
+    ("Turkey", 1),
+    ("Potato Face", 15);
+    
+    SELECT * FROM cats;
+    
+    
