@@ -115,3 +115,51 @@ VALUES
 -- And now we delete it
 DROP TABLE people;
 SHOW DATABASES;
+
+-- =============================================
+-- Working with NOT NULL
+-- =============================================
+
+/*
+What does Null: Yes mean?
+	◘ It means that NULL is permitted in that particular column
+		○ In other words, it means the value is unknown
+*/
+
+-- Let's insert a cat with no age
+
+INSERT INTO cats (name)
+VALUES ("Todd");
+
+SELECT * FROM cats; # so Todd's age will show "NULL"
+
+/*
+A lot of times though, we want to REQUIRE a value to be present
+	◘ We wouldn't want to insert a cat with no name
+    ◘ We can use a CONSTRAINT called "Not Null" to require data
+*/
+
+# Let's make a new table 
+
+CREATE TABLE cats2(
+	name VARCHAR(100) NOT NULL,
+    age INT NOT NULL
+);
+
+DESC cats2;
+
+-- The code below will genereate an error 
+-- "Error Code: Field 'age' doesn't have a default value
+
+-- INSERT INTO cats2(name)
+-- VALUES("Bilbo");
+
+SELECT * FROM cats2; # it didn't work, so the table cats2 is still empty
+
+-- Let's try it again with required data
+INSERT INTO cats2 (name, age)
+VALUES ("Bilbo", 19);
+
+SELECT * FROM cats2; # now it worked
+
+
