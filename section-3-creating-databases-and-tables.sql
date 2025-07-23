@@ -146,3 +146,20 @@ DESC pastries;
 
 # Now let's delete the table
 DROP TABLE pastries;
+
+-- =================================================
+-- SECTION: MySQL Comments
+-- ===================================================
+
+-- This is a comment, will be ignored
+# This is also a comment
+/*
+Comments are to make notes to yourself and collaboraters in the SQL file.
+This is an example of a multi-line comment.
+*/
+
+-- ↓ Comment out a block of code (Ctrl + /)
+-- CREATE TABLE pastries (
+-- 	name VARCHAR(50),
+--     quantity INT
+-- );
