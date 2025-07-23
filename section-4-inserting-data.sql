@@ -281,3 +281,42 @@ VALUES(1, 'bingo', 2);
 
 SELECT * FROM unique_cats;
 
+-- =============================================
+-- Working With Auto_Increment
+-- =============================================
+
+/*
+◘ PRIMARY KEY & NOT NULL is redundant ... 
+	○ because primary keys can never be null
+    
+◘ Auto_Increment
+	○ make a column automatically increment 
+	○ starts at 1, or whatever you specify 
+*/
+
+CREATE TABLE unique_cats3(
+	cat_id INT AUTO_INCREMENT,
+    name VARCHAR(100),
+    age INT,
+    PRIMARY KEY (cat_id)
+    );
+
+DESC unique_cats3;
+
+-- Now we don't have to specify a cat_id because it's automatic
+
+-- Insert our first cat
+INSERT INTO unique_cats3 (name, age)
+VALUES ("Yoyo", 2);
+
+SELECT * FROM unique_cats3;
+
+-- Another one ... 
+INSERT INTO unique_cats3 (name, age)
+VALUES ("ChaCha", 2);
+
+-- Enter with no values
+-- cat_id still automatically increments, other values will be null
+INSERT INTO unique_cats3 ()
+VALUES ();
+
