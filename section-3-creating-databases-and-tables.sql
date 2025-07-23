@@ -117,3 +117,11 @@ CREATE TABLE dogs (
     DESC cats;
     DESC dogs;
     
+  -- =================================================
+-- SECTION: Dropping Tables
+-- ===================================================
+
+# Drop our cats table
+DROP TABLE cats;
+SHOW TABLES; # now we only have dogs
+
