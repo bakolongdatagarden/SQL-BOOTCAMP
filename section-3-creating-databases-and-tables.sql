@@ -57,3 +57,63 @@ VARCHAR
 ◘ We can specify a maximum number of characters allowed 
 	○ varchat(100)
 */
+
+-- =============================================
+-- SECTION: Creating Tables 
+-- =============================================
+
+/*
+◘ Structure 
+
+CREATE TABLE tablename
+	(
+		column_name data_type,
+        column_name data_type
+	);
+*/
+# PRACTICAL: PET SHOP
+
+SHOW DATABASES;
+
+# Make a pet_shop db and use it 
+CREATE DATABASE pet_shop;
+USE pet_shop;
+
+# Create our first table: cats
+CREATE TABLE cats (
+	name VARCHAR(50), # 50 characters or less
+    age INT # age is an integer 
+    );
+
+# Verify it worked
+SELECT * FROM cats;
+
+# Create a dogs table 
+CREATE TABLE dogs (
+	name VARCHAR(50), 
+	breed VARCHAR(50), # we add a new category for dogs called 'breed'
+    age INT 
+);
+    SELECT * FROM dogs;
+    
+	SELECT database();
+  
+  -- =================================================
+-- SECTION: Creating Tables: How do We Know it Worked?
+-- ===================================================
+    
+    USE pet_shop;
+    SHOW TABLES;
+    
+    # What if we want to know more about the table, are they correctly formatted?
+
+	# See current structur of cats table ... 
+    SHOW COLUMNS FROM cats;
+    
+    # ... now dogs
+    SHOW COLUMNS FROM dogs;
+    
+    # or you can do this
+    DESC cats;
+    DESC dogs;
+    
