@@ -230,7 +230,43 @@ SELECT * FROM cats3;
 INSERT INTO cats3()
 VALUES ();
 
-/*
-◘ Do We need to specify NOT NULL & DEFAULT?
+-- Using NOT NULL & DEFAULT together 
 
+USE pet_shop;
+SHOW TABLES;
+CREATE TABLE cats4(	
+	name VARCHAR(100) NOT NULL DEFAULT 'unnamed',
+    age INT NOT NULL DEFAULT 99
+);
+
+DESC cats4;
+SELECT * FROM cats4;
+
+INSERT INTO cats4 (name)
+VALUES('Yalla');
+
+-- =============================================
+-- Introducing Primary Keys 
+-- =============================================
+
+/*
+Importance of Primary Keys:
+◘ what if you have identical rows?
+	○ we can use unique identifiers to rows so we can diferentiate even when everything looks the same 
+◘ numeric ids starts at a number and increments from there 
+◘ We declare a column a primary key column 
 */
+
+CREATE TABLE unique_cats (
+	cat_id INT NOT NULL PRIMARY KEY,
+    name VARCHAR(100),
+    age INT
+);
+
+DESC unique_cats; # we'll see that 'Key' column is set to PRI (primary)
+
+INSERT INTO unique_cats(cat_id, name, age)
+VALUES(1, 'bingo', 2);
+
+SELECT * FROM unique_cats;
+
