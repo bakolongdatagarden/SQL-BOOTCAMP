@@ -162,4 +162,38 @@ VALUES ("Bilbo", 19);
 
 SELECT * FROM cats2; # now it worked
 
+-- =============================================
+-- Sidenote: Quotes in MySQL
+-- =============================================
+
+/*
+◘ Technically in my SQL use of double or single quotes doesn't matter
+◘ But for other relational databases, you don't want to use double quotes
+◘ So it's good practice moving forward to always work with single quotes
+*/
+
+-- Let's make a quick table
+
+CREATE TABLE shops(
+	name VARCHAR(100)
+);
+
+DESC shops;
+
+-- Now insert using single quotes 
+
+INSERT INTO shops (name)
+VALUES ('Show  Emporium');
+
+/*
+◘ Now what about if we have a quote within a quote??
+	○ we need to ESCAPE quotes
+    ○ use '\' to escape quotes
+*/
+
+
+INSERT INTO shops (name)
+VALUES ('Mario\'s pizza');
+
+SELECT * FROM shops;
 
