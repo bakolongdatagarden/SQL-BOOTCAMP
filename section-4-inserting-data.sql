@@ -61,5 +61,57 @@ VALUES
     ("Potato Face", 15);
     
     SELECT * FROM cats;
+   
+-- =============================================
+-- Insert Exercise 
+-- =============================================
+
+/*
+INSTRUCTIONS
+◘ Create a people table 
+	○ first_name - 20 char limit
+    ○ last_name - 20 char limit
+    ○ age 
     
+◘ Insert your 1st person
+	○ Tina, Belcher, 13
+◘ Insert your 2nd person
+	○ Bob, Belcher, 42
     
+◘ Do a muli-insert
+	○ Linda, Belcher, 45
+	○ Phillip, Frond, 38
+    ○ Calvin, Fischoeder, 70
+*/
+
+--  Create people table
+CREATE TABLE people (
+	first_name VARCHAR(20),
+    last_name VARCHAR(20),
+    age INT
+);
+
+-- Inspect 
+DESC people;
+
+-- Insert the first person
+INSERT INTO people (first_name, last_name, age)
+VALUES("Tina", "Belcher", 13);
+
+-- Verify that worked
+SELECT * FROM people;
+
+-- Insert the second person
+INSERT INTO people (first_name, last_name, age)
+VALUES("Bob", "Belcher", 42);
+
+-- Insert Multiple people
+INSERT INTO people (first_name, last_name, age)
+VALUES
+	("Linda", "Belcher", 45),
+	("Phillip", "Frond", 38),
+	("Calvin", "Fischoeder", 70);
+
+-- And now we delete it
+DROP TABLE people;
+SHOW DATABASES;
