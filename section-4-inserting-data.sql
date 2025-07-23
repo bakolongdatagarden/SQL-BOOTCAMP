@@ -197,3 +197,40 @@ VALUES ('Mario\'s pizza');
 
 SELECT * FROM shops;
 
+-- =============================================
+-- Adding DEFAULT values
+-- =============================================
+
+/*
+◘ Serves as a sort of placeholder instead of showing 'NULL'
+
+	CREATE TABLE cats3(
+		name VARCHAR(100) DEFAULT 'unnamed',
+        age INT DEFAULT 99
+    );
+*/
+
+-- Create a new cats table with DEFAULT values for name and age
+CREATE TABLE cats3 (
+    name VARCHAR(50) DEFAULT 'mystery',
+    age INT DEFAULT 99
+);
+
+-- Inspect 
+DESC cats3;
+
+-- Insert a cat with no name
+
+INSERT INTO cats3 (age)
+VALUES (2);
+
+SELECT * FROM cats3;
+
+-- Insert a cat with no values present
+INSERT INTO cats3()
+VALUES ();
+
+/*
+◘ Do We need to specify NOT NULL & DEFAULT?
+
+*/
