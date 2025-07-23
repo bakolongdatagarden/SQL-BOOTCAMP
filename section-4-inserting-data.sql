@@ -320,3 +320,37 @@ VALUES ("ChaCha", 2);
 INSERT INTO unique_cats3 ()
 VALUES ();
 
+-- =============================================
+-- EXERCISE: Create Table & Insert
+-- =============================================
+
+/*
+INSTRUCTIONS: 
+
+◘ Define an Employees table with the following fields:
+	○ id - number (automatically increments) and primary key
+    ○ last_name - text, mandatory
+    ○ first_name - text, mandatory
+    ○ middle_bame - text, not mandatory
+    ○ age - number, mandatory
+    ○ current_status - text, mandatory, defaults to 'empolyed'
+*/
+
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    last_name VARCHAR(50) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    middle_name VARCHAR(50),
+    age INT NOT NULL,
+    current_status VARCHAR(50) NOT NULL DEFAULT 'employed'
+);
+
+SHOW TABLES;
+DESC employees;
+
+-- Let's do an employee
+
+INSERT INTO employees (first_name, last_name, age)
+VALUES ('Thomas', 'Chickenman', 87);
+
+SELECT * FROM employees;
