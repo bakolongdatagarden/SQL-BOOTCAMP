@@ -164,3 +164,44 @@ WHERE name='Misty';
 
 SELECT cat_id AS id, name FROM cats WHERE name='Misty';
 
+-- =================================================
+-- Update Exercise
+-- ==================================================
+
+-- 1. Change Jackson's name to "Jack"
+
+-- make sure there aren't two Jackons
+SELECT * FROM cats WHERE name='Jackson';
+
+-- ok, we're good. Now let's update his name
+UPDATE cats SET name='Jack'
+WHERE name='Jackson';
+
+SELECT * FROM cats;
+
+-- 2. Change Ringo's breed to "British Shorthair"
+
+SELECT * FROM cats WHERE name='Ringo';
+
+UPDATE cats SET breed='British Shorthair'
+WHERE name='Ringo';
+
+-- 3. Update both Maine Coons' ages to be 12
+
+SELECT * FROM cats WHERE breed='Maine Coon';
+
+-- There's a typo in breed name for Dumbledore, let's fix it
+
+UPDATE cats SET breed='Maine Coon'
+WHERE name='Dumbledore';
+
+-- now check
+SELECT * FROM cats WHERE breed='Maine Coon';
+
+-- now try the challenge again: Update both Maine Coons' ages to be 12
+
+UPDATE cats SET age=12
+WHERE breed='Maine Coon';
+
+# Did that work?
+SELECT * FROM cats WHERE breed='Maine Coon';
