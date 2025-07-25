@@ -44,4 +44,26 @@ VALUES
 -- Inspect our data
 SELECT * FROM cats;
     
-    
+-- =================================================
+-- Officially Introducing Select
+-- ==================================================
+
+/*
+◘ How do retrieve (or READ) data that's in a table?
+	○ SELECT * FROM cats;
+    ○ '*' = give me all the columns 
+    ○ but we don't have to get all the columns ...  we can specify what we want
+*/
+
+-- retrieve only the names from our cats table
+SELECT name FROM cats;
+
+-- age 
+SELECT age FROM cats;
+
+-- get name and age
+SELECT name, age FROM cats;
+
+-- name and breed
+SELECT name, breed FROM cats;
+
