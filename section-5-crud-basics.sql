@@ -124,3 +124,31 @@ DESC cats;
 -- another example 
 SELECT name AS kittyName FROM cats;
 
+-- =================================================
+-- Using UPDATE 
+-- ==================================================
+
+/*
+◘ How do we UPDATE existing rows in a table?
+	○ ex. a user changes their username or password
+*/
+
+SELECT * FROM cats;
+
+SET SQL_SAFE_UPDATES = 0; # temporarily shut off safe update
+
+-- update current Tabby breeds to be 'shorthair'
+UPDATE cats SET breed='Shorthair'
+WHERE breed='Tabby';
+
+SET SQL_SAFE_UPDATES = 1; # turn safe update back on 
+
+-- alter multiple columns at once 
+UPDATE employees SET current_status='laid-off', last_name='who cares';
+
+SELECT * FROM employees;
+
+-- update Misty the cats age to be 14
+UPDATE cats SET age=14
+WHERE name='Misty';
+
