@@ -152,3 +152,15 @@ SELECT * FROM employees;
 UPDATE cats SET age=14
 WHERE name='Misty';
 
+-- =================================================
+-- Quick Rule of Thumn
+-- ==================================================
+
+/*
+◘ To avoid any unexpected updates, try SELECTing before you update 
+	○ UPDATE cats SET age=14 WHERE name='Misty';
+    ○ What if there are two cats named Misty? 
+*/
+
+SELECT cat_id AS id, name FROM cats WHERE name='Misty';
+
