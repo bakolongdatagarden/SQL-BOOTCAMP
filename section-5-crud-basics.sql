@@ -103,3 +103,24 @@ SELECT name, age FROM cats WHERE breed='Tabby';
 
 -- 4. Retrieve the rows where cat_id and ages are the same
 SELECT cat_id, age FROM cats WHERE cat_id=age;
+
+-- =================================================
+-- Aliases
+-- ==================================================
+
+/*
+◘ When we're selecting data, we can rename a column to make it shorter or easier to understand
+	○ We do this using the 'AS' keyword 
+◘ This change is just temporary (for a specific query)
+*/
+
+-- for this query, we rename 'cat_id' to 'id'
+SELECT cat_id AS id, name FROM cats;
+
+-- we notice here that change is just temporary
+-- 'cat_id' is still the name of the column 
+DESC cats;
+
+-- another example 
+SELECT name AS kittyName FROM cats;
+
