@@ -24,10 +24,10 @@ SCENARIO : Spring Cleaning (The Annual Closet Inventory)
     ◘ 7. UPDATE all polo shirts: change their size to L
     ◘ 8. UPDATE the shirt last worn 15 days ago: change last_worn to 0
     ◘ 9. UPDATE all white shirts: change size to 'XS' and color to 'off white'
-    ◘ DELETE all old shirts: last worn 200 days ago
-    ◘ DELETE all tank tops
-    ◘ DELETE all shirts
-    ◘ DROP the entire shirts table 
+    ◘ 10. DELETE all old shirts: last worn 200 days ago
+    ◘ 11. DELETE all tank tops
+    ◘ 12. DELETE all shirts
+    ◘ 13. DROP the entire shirts table 
 */
 
 -- =================================================
@@ -120,3 +120,29 @@ WHERE color='white';
 -- DELETE
 -- =================================================
 
+SELECT * FROM shirts;
+
+-- 10. DELETE all old shirts (last worn 200 days ago)
+-- a. inspect
+SELECT * FROM shirts
+WHERE last_worn=200;
+-- b. delete
+DELETE FROM shirts
+WHERE last_worn=200;
+
+-- 11. DELETE all tank tops 
+-- a. inspect
+SELECT * FROM shirts
+WHERE article='tank top';
+-- b. delete
+DELETE FROM shirts
+WHERE article='tank top';
+
+-- 12. DELETE all shirts
+SELECT * FROM shirts;
+DELETE FROM shirts;
+
+-- 13. DROP the entire shirts table
+DROP TABLE shirts;
+
+SHOW TABLES;
