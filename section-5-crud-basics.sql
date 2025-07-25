@@ -10,7 +10,7 @@ This section is all about CRUD
 
 -- =================================================
 -- Getting Our New Dataset
--- ===================================================
+-- =================================================
 
 SHOW TABLES;
 
@@ -45,7 +45,7 @@ VALUES
 SELECT * FROM cats;
     
 -- =================================================
--- Officially Introducing Select
+-- Officially Introducing SELECT
 -- ==================================================
 
 /*
@@ -66,4 +66,26 @@ SELECT name, age FROM cats;
 
 -- name and breed
 SELECT name, breed FROM cats;
+
+-- =================================================
+-- The WHERE Clause 
+-- ==================================================
+
+/*
+◘ WHERE allows us to narrow down the rows we are working with 
+*/
+
+-- Retrieve information on  cats that are 4 years old
+SELECT * FROM cats WHERE age=4;
+
+-- we just want name and age of cats that are 4
+SELECT name, age FROM cats where age=4;
+
+-- now we just want name
+SELECT name FROM cats where age=4;
+
+-- math based off a piece of text
+-- notice the text is case-insensitive 
+SELECT * FROM cats where name='egg';
+
 
