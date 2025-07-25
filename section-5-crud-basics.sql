@@ -171,7 +171,8 @@ SELECT cat_id AS id, name FROM cats WHERE name='Misty';
 -- 1. Change Jackson's name to "Jack"
 
 -- make sure there aren't two Jackons
-SELECT * FROM cats WHERE name='Jackson';
+SELECT * FROM cats 
+WHERE name='Jackson';
 
 -- ok, we're good. Now let's update his name
 UPDATE cats SET name='Jack'
@@ -205,3 +206,17 @@ WHERE breed='Maine Coon';
 
 # Did that work?
 SELECT * FROM cats WHERE breed='Maine Coon';
+
+-- =================================================
+-- Introducing DELETE
+-- ==================================================
+
+SELECT * FROM cats;
+
+-- Delete our cat named egg
+DELETE FROM cats WHERE name='Egg';
+
+
+-- This will Delete all the rows (clear out a table)
+SELECT * FROM employees;
+DELETE FROM employees;
