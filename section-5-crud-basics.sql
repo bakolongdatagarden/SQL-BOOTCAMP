@@ -220,3 +220,26 @@ DELETE FROM cats WHERE name='Egg';
 -- This will Delete all the rows (clear out a table)
 SELECT * FROM employees;
 DELETE FROM employees;
+
+-- =================================================
+-- Delete Exercise 
+-- ==================================================
+
+-- DELETE all 4 year old cats
+
+SELECT * FROM cats;
+
+DELETE FROM cats
+WHERE age=4;
+
+-- DELETE the cats whose age is the same as their cat_id
+
+SELECT * FROM cats
+WHERE age=cat_id;
+
+DELETE FROM cats
+WHERE age=cat_id;
+
+-- DELETE all cats
+
+DELETE FROM cats;
