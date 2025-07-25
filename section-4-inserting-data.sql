@@ -353,4 +353,5 @@ DESC employees;
 INSERT INTO employees (first_name, last_name, age)
 VALUES ('Thomas', 'Chickenman', 87);
 
-SELECT * FROM employees;
+
+
