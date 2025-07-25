@@ -19,8 +19,8 @@ SCENARIO : Spring Cleaning (The Annual Closet Inventory)
         ○ last_worn = integer 
 	◘ 3. Insert the given data
     ◘ 4. Add a new shirt: purple polo shirt, size M, last worn 50 days ago
-    ◘ SELECT all shirts: but only print out article and color
-    ◘ SELECT all medium shirts: print out everything but shirt_id
+    ◘ 5. SELECT all shirts: but only print out article and color
+    ◘ 6. SELECT all medium shirts: print out everything but shirt_id
     ◘ UPDATE all polo shirts: change their size to L
     ◘ UPDATE the shirt last worn 15 days ago: change last_worn to 0
     ◘ UPDATE all white shirts: change size to 'XS' and color to 'off white'
@@ -69,4 +69,17 @@ SELECT * FROM shirts;
 -- 4. ADD a new shirt 
 INSERT INTO shirts (article, color, shirt_size, last_worn)
 VALUES('polo shirt', 'purple', 'M', 50);
+
+-- =================================================
+-- READING
+-- =================================================
+SELECT * FROM shirts;
+
+
+-- 5. SELECT all shirts: only print article and color
+SELECT article, color FROM shirts;
+
+-- 6. SELECT all medium shirts: print out everything but shirt_id
+SELECT article, color, shirt_size, last_worn FROM shirts
+WHERE shirt_size='M';
 
