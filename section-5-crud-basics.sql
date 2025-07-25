@@ -79,13 +79,27 @@ SELECT name, breed FROM cats;
 SELECT * FROM cats WHERE age=4;
 
 -- we just want name and age of cats that are 4
-SELECT name, age FROM cats where age=4;
+SELECT name, age FROM cats WHERE age=4;
 
 -- now we just want name
-SELECT name FROM cats where age=4;
+SELECT name FROM cats WHERE age=4;
 
 -- math based off a piece of text
 -- notice the text is case-insensitive 
-SELECT * FROM cats where name='egg';
+SELECT * FROM cats WHERE name='egg';
 
+-- =================================================
+-- Rapid Fire Exercises
+-- ==================================================
 
+-- 1. Select cat_id from all the rows
+SELECT cat_id FROM cats;
+
+-- 2. Select name & breed for all the rows
+SELECT name, breed FROM cats;
+
+-- 3. Retrieve the names and ages of  Tabby Cats
+SELECT name, age FROM cats WHERE breed='Tabby';
+
+-- 4. Retrieve the rows where cat_id and ages are the same
+SELECT cat_id, age FROM cats WHERE cat_id=age;
