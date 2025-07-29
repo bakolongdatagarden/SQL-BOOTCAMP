@@ -156,3 +156,41 @@ SELECT SUBSTR(title, 1, 15) FROM books;
 SELECT SUBSTRING(author_lname, 1, 1), author_lname FROM books;
 -- with an alias for our substring ... 
 SELECT SUBSTRING(author_lname, 1, 1) AS initial, author_lname FROM books;
+
+-- =================================================
+-- COMBINING STRING FUNCTIONS
+-- =================================================
+
+-- get the first 10 characters of titles
+SELECT SUBSTR(title, 1, 10) FROM books;
+
+-- we want to add '...' to make it clear these titles are shortened versions
+-- combining SELECT and CONCAT (passing a function to another function)
+SELECT 
+    CONCAT(SUBSTR(title, 1, 10), '...')
+FROM books;
+    
+-- trying my own example
+SELECT 
+	CONCAT("Book Title: ", SUBSTR(title, 1, 10), '...')
+FROM books;
+
+-- let's create a column that's just the author's initials (ex. J.L.)
+
+SELECT 
+    SUBSTR(author_fname, 1, 1), SUBSTR(author_lname, 1, 1)
+FROM
+    books;
+    
+-- but we want them to be combined)
+
+SELECT 
+    CONCAT(SUBSTR(author_fname, 1, 1),
+            '.',
+            SUBSTR(author_lname, 1, 1),
+            '.') AS Initials
+FROM
+    books;
+    
+
+DESC books;
