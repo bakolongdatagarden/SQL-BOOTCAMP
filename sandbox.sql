@@ -1,0 +1,2 @@
+SHOW DATABASES; 
+DROP DATABASE nyambia;
