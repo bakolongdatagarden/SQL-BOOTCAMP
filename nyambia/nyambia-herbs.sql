@@ -1,6 +1,0 @@
-CREATE DATABASE nyambia_herbs;
-SHOW DATABASES;
-
-CREATE TABLE (
-	
-);
