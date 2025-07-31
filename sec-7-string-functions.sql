@@ -194,3 +194,55 @@ FROM
     
 
 DESC books;
+
+-- =================================================
+-- REPLACE 
+-- (replace parts of strings)
+-- =================================================
+
+/*
+◘ We're not actually updating our data at all ... 
+• we're simply displaying and selecting information,
+• and changing the way it looks after we remove it 
+
+◘ There are 3 string arguments 
+• 1. The string we will be operating on
+• 2. What we want to replace
+• 3. What we want to replace it with 
+*/
+
+-- ex. We replace the 'N' in 'Nyambi' with a z
+SELECT REPLACE('Nyambi', 'N', 'Z');
+
+-- Colt's example 
+SELECT REPLACE('Hello World', 'Hell', '%$#@');
+
+-- example replacing a space
+SELECT 
+    REPLACE('cheese bread coffee milk',
+        ' ',
+        ' and ');
+        
+-- Replace is case sensitive
+SELECT REPLACE('hi', 'H', 'z'); -- this will be completely unchanged
+
+-- Practicing with our books table
+USE book_shop;
+SELECT * FROM books;
+
+	-- Let's replace all spaces in titles with dashes
+	SELECT 
+		REPLACE(title, ' ', '-')
+	FROM
+		books;
+        
+-- Random example combining concat with replace
+SELECT 
+    CONCAT('Book Title: ', REPLACE(title, ' ', '_'))
+FROM
+    books;
+    
+-- experiment: combining the lower, concat, and replace functions
+SELECT
+	LOWER(CONCAT('Book Title: ', REPLACE(title, ' ', '_')))
+FROM books;
