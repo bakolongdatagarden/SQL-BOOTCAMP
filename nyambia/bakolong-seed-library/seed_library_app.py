@@ -19,25 +19,28 @@ def get_db_connection():
         return None
 
 # Function to insert new seed pack
-def insert_seed_pack(pack_id, seed_name, variety, quantity, plant_type, seed_source, date_acquired):
+def insert_seed_pack(seed_name, variety, quantity, plant_type, seed_source, date_acquired):
     connection = get_db_connection()
     if connection:
         try:
             cursor = connection.cursor()
             query = """INSERT INTO seed_packs 
-                      (pack_id, seed_name, variety, quantity, plant_type, seed_source, date_acquired) 
-                      VALUES (%s, %s, %s, %s, %s, %s, %s)"""
-            values = (pack_id, seed_name, variety, quantity, plant_type, seed_source, date_acquired)
+                      (seed_name, variety, quantity, plant_type, seed_source, date_acquired) 
+                      VALUES (%s, %s, %s, %s, %s, %s)"""
+            values = (seed_name, variety, quantity, plant_type, seed_source, date_acquired)
             cursor.execute(query, values)
             connection.commit()
-            return True
+            
+            # Get the auto-generated pack_id to return to user
+            new_pack_id = cursor.lastrowid
+            return True, new_pack_id
         except mysql.connector.Error as err:
             st.error(f"Error inserting data: {err}")
-            return False
+            return False, None
         finally:
             cursor.close()
             connection.close()
-    return False
+    return False, None
 
 # Function to get all seed packs
 def get_all_seeds():
@@ -74,7 +77,6 @@ def main():
             col1, col2 = st.columns(2)
             
             with col1:
-                pack_id = st.number_input("Pack ID", min_value=1, step=1)
                 seed_name = st.text_input("Seed Name*", placeholder="e.g., Cherokee Purple Tomato")
                 variety = st.text_input("Variety", placeholder="Leave blank if unknown")
                 
@@ -93,13 +95,13 @@ def main():
                     variety_value = variety if variety else "mystery"
                     source_value = seed_source if seed_source else "mystery"
                     
-                    success = insert_seed_pack(
-                        pack_id, seed_name, variety_value, quantity, 
+                    success, new_pack_id = insert_seed_pack(
+                        seed_name, variety_value, quantity, 
                         plant_type, source_value, date_acquired
                     )
                     
                     if success:
-                        st.success(f"✅ Added {seed_name} (Pack ID: {pack_id}) to your collection!")
+                        st.success(f"✅ Added {seed_name} (Pack ID: {new_pack_id}) to your collection!")
                         st.balloons()
                     else:
                         st.error("❌ Failed to add seed pack. Check your database connection.")
