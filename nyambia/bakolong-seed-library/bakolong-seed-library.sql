@@ -17,7 +17,7 @@ SELECT DATABASE();
 
 -- Create table for seed packs counting
 CREATE TABLE seed_packs(
-	pack_id INT PRIMARY KEY,
+	pack_id INT PRIMARY KEY AUTO_INCREMENT,
 	seed_name VARCHAR(50) NOT NULL,
     variety VARCHAR(50) DEFAULT 'mystery',
     quantity ENUM('Few', 'Medium', 'Lots') NOT NULL,
@@ -28,4 +28,8 @@ CREATE TABLE seed_packs(
 
 -- Verify that worked ♠
 DESC seed_packs;
+
+SELECT * FROM seed_packs;
+
+
 
