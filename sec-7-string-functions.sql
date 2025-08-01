@@ -246,3 +246,7 @@ FROM
 SELECT
 	LOWER(CONCAT('Book Title: ', REPLACE(title, ' ', '_')))
 FROM books;
+
+-- Here's your village name
+SELECT 
+	REPLACE(
