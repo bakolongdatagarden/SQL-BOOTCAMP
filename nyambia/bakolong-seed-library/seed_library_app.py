@@ -81,7 +81,13 @@ def main():
                 variety = st.text_input("Variety", placeholder="Leave blank if unknown")
                 
             with col2:
-                quantity = st.selectbox("Quantity*", ["Few", "Medium", "Lots"])
+                quantity = st.selectbox("Quantity*", [
+                    "Very Few (1-5)",
+                    "Few (6-20)",
+                    "Medium (21-75)",
+                    "Lots (76-200)",
+                    "Bulk (200+)"
+                ])
                 plant_type = st.selectbox("Plant Type", ["Vegetable", "Herb", "Flower", "Fruit", "Trees & Shrubs", "Other"])
             
             # Source dropdown with custom option
