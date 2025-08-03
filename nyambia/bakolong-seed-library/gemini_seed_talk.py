@@ -6,11 +6,6 @@ import mysql.connector
 import pandas as pd
 from datetime import date
 import re
-import os
-from dotenv import load_dotenv
-
-# Load environment variables from .env
-load_dotenv()
 
 # Google Gemini Integration
 try:
@@ -36,13 +31,12 @@ class SeedLibraryAssistant:
 
     def get_db_connection(self):
         try:
-            # TODO: Move credentials to .env for security
             connection = mysql.connector.connect(
-                host=os.getenv("DB_HOST"),
-                port=int(os.getenv("DB_PORT")),
-                user=os.getenv("DB_USER"),
-                password=os.getenv("DB_PASSWORD"),
-                database=os.getenv("DB_NAME")
+                host=st.secrets["database"]["DB_HOST"],
+                port=int(st.secrets["database"]["DB_PORT"]),
+                user=st.secrets["database"]["DB_USER"],
+                password=st.secrets["database"]["DB_PASSWORD"],
+                database=st.secrets["database"]["DB_NAME"]
             )
             return connection
         except mysql.connector.Error as err:
@@ -227,10 +221,11 @@ def main():
         api_key = st.text_input(
             "Gemini API Key", 
             type="password",
+            value=st.secrets.get("API_KEY", ""),
             help="Get free key from https://makersuite.google.com/app/apikey"
         )
         if not api_key:
-            api_key = os.getenv("API_KEY")
+            api_key = st.secrets["API_KEY"]
         st.divider()
         st.header("🌿 Quick Actions")
         if st.button("View Companion Planting Guide"):
