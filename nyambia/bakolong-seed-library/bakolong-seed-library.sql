@@ -131,3 +131,64 @@ CREATE TABLE seed_packs(
 );
 SET SQL_SAFE_UPDATES = 1;
 SELECT * FROM seed_packs;
+
+
+-- #######################################################################################
+-- PRACTICE QUERIES 
+-- #######################################################################################
+
+/*
+Seed Label
+◘ Write a query that creates a "seed label" by:
+	• concatenating the seed_name with "-" and the variety
+    • give it the alias seed_label
+*/
+
+DESC seed_packs;
+
+SELECT 
+	CONCAT(seed_name, ' - ', variety) AS 'seed_label'
+FROM seed_packs;
+
+/*
+	◘ Write a query that shows:
+		• the first 8 characters of the seed_name,
+        • followed by "..." 
+        • and also displays the full plant_type 
+        • use aliases "short_name" and "type"
+        
+	◘ Your result should look something like:
+
+		• short_name: "Cantalou...", type: "Fruit"
+		• short_name: "Waterm...", type: "Fruit"
+		• short_name: "Turnip...", type: "Vegetable"
+*/
+
+SELECT 
+    CONCAT(SUBSTR(seed_name, 1, 8),
+            '...') AS 'short_name',
+            plant_type AS 'type'
+FROM
+    seed_packs;
+
+
+/*
+	Which seeds do we currently have a 'Bulk' amount of?
+*/
+SELECT * FROM seed_packs
+WHERE quantity='Bulk (200+)';
+
+/**/
+SELECT 
+	CONCAT(
+		'We received ',
+        seed_name, 
+        ' from ',
+        seed_source, 
+        ' on ',
+        date_acquired)
+FROM 
+	seed_packs;
+    
+USE bakolong_seed_library;
+SELECT * FROM seed_packs;
