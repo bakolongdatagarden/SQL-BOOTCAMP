@@ -1,3 +1,5 @@
+# Version 1.1: Deepseek
+
 import streamlit as st
 import mysql.connector
 import pandas as pd
@@ -221,3 +223,14 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+AttributeError: 'SeedLibraryAssistant' object has no attribute 'text_to_sql'
+
+File "C:\Users\bakol\Documents\SQL-BOOTCAMP\nyambia\bakolong-seed-library\gemini_seed_talk.py", line 223, in <module>
+    main()
+    ~~~~^^
+File "C:\Users\bakol\Documents\SQL-BOOTCAMP\nyambia\bakolong-seed-library\gemini_seed_talk.py", line 176, in main
+    sql_query = st.session_state.assistant.text_to_sql(user_question)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""
