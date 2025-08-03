@@ -82,8 +82,18 @@ def main():
                 
             with col2:
                 quantity = st.selectbox("Quantity*", ["Few", "Medium", "Lots"])
-                plant_type = st.selectbox("Plant Type", ["Vegetable", "Herb", "Flower", "Fruit", "Other"])
-                seed_source = st.text_input("Source", placeholder="e.g., Oak Lawn Library")
+                plant_type = st.selectbox("Plant Type", ["Vegetable", "Herb", "Flower", "Fruit", "Trees & Shrubs", "Other"])
+            
+            # Source dropdown with custom option
+            source_options = ["DPL Seed Library", "Burpee - Purchased", "Seed Savers Exchange", "Other"]
+            source_selection = st.selectbox("Source", source_options)
+            
+            # Show custom text input if "Other" is selected
+            if source_selection == "Other":
+                custom_source = st.text_input("Custom Source", placeholder="Enter your custom source")
+                final_source = custom_source if custom_source else "mystery"
+            else:
+                final_source = source_selection
             
             date_acquired = st.date_input("Date Acquired*", value=date.today())
             
@@ -93,11 +103,10 @@ def main():
                 if seed_name:  # Basic validation
                     # Use defaults if fields are empty
                     variety_value = variety if variety else "mystery"
-                    source_value = seed_source if seed_source else "mystery"
                     
                     success, new_pack_id = insert_seed_pack(
                         seed_name, variety_value, quantity, 
-                        plant_type, source_value, date_acquired
+                        plant_type, final_source, date_acquired
                     )
                     
                     if success:
