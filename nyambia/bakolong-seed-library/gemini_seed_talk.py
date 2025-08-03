@@ -1,3 +1,4 @@
+# Version 1.0: Claude & VSCODE Co-Pilot
 import streamlit as st
 import mysql.connector
 import pandas as pd
