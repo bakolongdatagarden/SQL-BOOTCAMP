@@ -168,3 +168,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# ################################
+# Updates TO-DO
+# 1. Change form entry animation from floating baloons to floating plants?
+# 2. Add automatic form refresh functionality after seed pack entry.
+# ################################
