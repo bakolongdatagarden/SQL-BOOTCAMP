@@ -509,5 +509,60 @@ SELECT
   CHAR_LENGTH(title) AS 'len'
 FROM
   books;
+/*
+ UPPER & LOWER 
+ • Change the casing of a string
+ ○ UPPER() : Uppercase
+ ○ LOWER() : Lowercase 
+ */
+SELECT
+  UPPER('Nyambia');
+SELECT
+  LOWER('VILLAGE');
+-- this also works ... 
+SELECT
+  UCASE('Bakolong');
+SELECT
+  LCASE('Bakolong');
+SELECT
+  UPPER(title)
+FROM
+  books;
+/*
+ Challenge: Wrote a query that generates a column where the results look like:
+ "I LOVE THE NAMESAKE!!!"
+ */
+SELECT
+  CONCAT('I LOVE ', UPPER(title), '!!!')
+FROM
+  books;
+  
+  
+/* experiment query:
+Randomly select a book from our table to recommend
+*/
+SELECT
+  CONCAT(
+    'You should read ',
+    title,
+    ' by ',
+    author_fname,
+    ' ',
+    author_lname
+  ) AS 'Recommendation'
+FROM
+  books
+ORDER BY
+  RAND()
+LIMIT
+  1;
+  
+-- #################################################
+-- SESSION: 8/4/2025
+-- #################################################
+
+/*
+    
+*/
  
   
