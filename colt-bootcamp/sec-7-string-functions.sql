@@ -690,7 +690,7 @@ SELECT
  */
 SHOW TABLES;
 SELECT
-  REPLACE(title, ' ', '->')
+  REPLACE(title, ' ', '->') AS 'title'
 FROM
   books;
 /*
@@ -701,7 +701,7 @@ FROM
  */
 SELECT
   author_lname AS 'forwards',
-  REVERSE(author_lname) AS backwards
+  REVERSE(author_lname) AS 'backwards'
 FROM
   books;
 /*
@@ -738,8 +738,18 @@ FROM
  */
 DESC books;
 SELECT
-  CONCAT(title, '...') AS 'short title',
+  CONCAT(SUBSTR(title, 1, 10), '...') AS 'short title',
   CONCAT_WS(" , ", author_lname, author_fname) AS 'author',
   CONCAT(stock_quantity, ' in stock') AS 'quantity'
+FROM
+  books;
+/*
+ EXERCISE 8
+ • (Accidentally skipped over this one!)
+ • Print 1 Column aliased 'full name in caps', 
+ • with authors' first and last names in UPPERCASE
+ */
+SELECT
+  UPPER(CONCAT(author_fname, ' ', author_lname)) AS 'full name in caps'
 FROM
   books;
