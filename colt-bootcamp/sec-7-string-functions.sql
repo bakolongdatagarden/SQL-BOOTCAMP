@@ -653,14 +653,93 @@ SELECT
   TRIM(
     TRAILING '...'
     FROM
-        '...your village name is...'
+      '...your village name is...'
   );
-  -- both 
-  SELECT
+-- both 
+SELECT
   TRIM(
     BOTH '...'
     FROM
-        '...your village name is...'
-  )
-  
-  
+      '...your village name is...'
+  );
+/*
+ STRING FUNCTION EXCERCISES
+ 
+ EXERCISE 1 
+ • REVERSE and UPPERCASE the following sentence: 
+ "Why does my cat look at me with such hatred?"
+ */
+SELECT
+  REVERSE(
+    UPPER('Why does my cat look at me with such hatred?')
+  );
+/*
+ EXERCISE 2
+ • What does this print out?
+ (My Guess: "I-like-cats")
+ */
+SELECT
+  REPLACE (
+    CONCAT('I', ' ', 'like', ' ', 'cats'),
+    ' ',
+    '-'
+  );
+/*
+ EXERCISE 3
+ • Replace spaces in titles (books table) with '->'
+ */
+SHOW TABLES;
+SELECT
+  REPLACE(title, ' ', '->')
+FROM
+  books;
+/*
+ EXERCISE 4
+ • Print a table with two columns: 
+ • Column 1: author_lname (with alias 'forwards')
+ • Column 2: author_lname backwards (with alias 'backwards')
+ */
+SELECT
+  author_lname AS 'forwards',
+  REVERSE(author_lname) AS backwards
+FROM
+  books;
+/*
+ EXERCISE 5
+ • Create blurbs utilizing the title and released_year columns
+ ex. "The Namesake was released in 2003"
+ • Give it the alias 'blurb'
+ */
+SELECT
+  CONCAT(
+    'The ',
+    title,
+    ' was released in ',
+    released_year
+  ) AS 'blurb'
+FROM
+  books;
+/*
+ EXERCISE 6
+ • Print book titles and the length of each title 
+ • Column 2 has an alias of 'character count'
+ */
+SELECT
+  title,
+  CHAR_LENGTH(title) as 'character count'
+FROM
+  books;
+/*
+ EXERCISE 7
+ • Generate output with the the following 3 columns:
+ 1. 'alias:short title' ex "American G..."
+ 2. 'alias: author' ex "Gaiman, Neil"
+ 3. 'alias quantity' ex "12 in stock"
+ */
+DESC books;
+SELECT
+  CONCAT(title, '...') AS 'short title',
+  CONCAT_WS(" , ", author_lname, author_fname) AS 'author',
+  CONCAT(stock_quantity, ' in stock') AS 'quantity'
+FROM
+  books;
