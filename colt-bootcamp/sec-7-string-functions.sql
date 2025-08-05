@@ -616,19 +616,51 @@ SELECT
  */
 SELECT
   TRIM('   Serekunda    ');
-  
 -- you can also remove other characters if you specify other characters
-
 -- remove leading 'x'
-SELECT 
-    TRIM(LEADING 'x' FROM 'xxxbarxxx');
-
+SELECT
+  TRIM(
+    LEADING 'x'
+    FROM
+      'xxxbarxxx'
+  );
 -- remove both leading and trailing 'x'
-SELECT 
-    TRIM(BOTH 'x' FROM 'xxxbarxxx');
+SELECT
+  TRIM(
+    BOTH 'x'
+    FROM
+      'xxxbarxxx'
+  );
 -- remove trailing 'x'
-SELECT 
-    TRIM(TRAILING 'x' from 'xxxbarxxx');
-    
-
-    
+SELECT
+  TRIM(
+    TRAILING 'x'
+    from
+      'xxxbarxxx'
+  );
+-- #################################################
+-- SESSION: 8/5/2025
+-- #################################################
+-- trim the leading '...'
+SELECT
+  TRIM(
+    LEADING '...'
+    FROM
+      '...your village name is...'
+  );
+-- trailing
+SELECT
+  TRIM(
+    TRAILING '...'
+    FROM
+        '...your village name is...'
+  );
+  -- both 
+  SELECT
+  TRIM(
+    BOTH '...'
+    FROM
+        '...your village name is...'
+  )
+  
+  
