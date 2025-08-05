@@ -110,9 +110,94 @@ FROM
   books;
 -- another DISTINCT combination
 -- we basically get every row in our dataset
-SELECT 
+SELECT
   DISTINCT author_fname,
-  author_lname, 
+  author_lname,
   released_year
-FROM 
+FROM
   books;
+-- #########################################################################
+-- VIDEO: ORDER BY
+-- #########################################################################
+-- insert Col't example 
+INSERT INTO
+  books (title, author_lname)
+VALUES
+  ('my life', 'steele');
+-- verify
+SELECT
+  *
+FROM
+  books;
+-- query ordered by the author's last name
+SELECT
+  book_id,
+  author_fname,
+  author_lname
+FROM
+  books
+ORDER BY
+  author_lname;
+-- now ordered by author's first name 
+-- note (NULL will always come first before any alphabetical values)
+SELECT
+  book_id,
+  author_fname,
+  author_lname
+FROM
+  books
+ORDER BY
+  author_fname;
+-- ORDER BY is ASCENDING by default, but we can change that ... 
+-- we use 'DESC' in this case for DESCENDING
+SELECT
+  book_id,
+  author_fname,
+  author_lname
+FROM
+  books
+ORDER BY
+  author_lname DESC;
+-- we can do numbers too...
+DESC books;
+-- first, let's select title and pages 
+SELECT
+  title,
+  pages
+FROM
+  books;
+-- now same selection, ordered by page count
+SELECT
+  title,
+  pages
+FROM
+  books
+ORDER BY
+  pages;
+-- descending instead of ascending
+SELECT
+  title,
+  pages
+FROM
+  books
+ORDER BY
+  pages DESC;
+-- let's sort by released released_year
+-- what if we're not even selecting released_year?
+SELECT
+  title,
+  pages
+FROM
+  books
+ORDER BY
+  released_year;
+-- ↑ it's ordered by released_year, you just don't see the column
+-- ↓ here's proof
+SELECT
+  title,
+  pages,
+  released_year
+FROM
+  books
+ORDER BY
+  released_year;
