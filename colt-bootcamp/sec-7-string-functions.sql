@@ -536,11 +536,9 @@ SELECT
   CONCAT('I LOVE ', UPPER(title), '!!!')
 FROM
   books;
-  
-  
 /* experiment query:
-Randomly select a book from our table to recommend
-*/
+ Randomly select a book from our table to recommend
+ */
 SELECT
   CONCAT(
     'You should read ',
@@ -556,13 +554,81 @@ ORDER BY
   RAND()
 LIMIT
   1;
-  
 -- #################################################
 -- SESSION: 8/4/2025
 -- #################################################
-
 /*
-    
-*/
+ OTHER STRING FUNCTIONS
+ */
+/*
+ INSERT()
+ • insert some substring into a larger string 
+ ○ arguments: 
+ 1. the original string, 
+ 2. the index location of insertion,
+ 3. how many characters to replace
+ 4. string you want to insert 
+ */
+-- insert 'Nyambia' after 'The'
+SELECT
+INSERT
+  ('The Village of Bakolong', 4, 0, ' Nyambia');
+-- what if we replace some characters?
+SELECT
+INSERT
+  ('The Village of Bakolong', 4, 4, ' Nyambia');
+/*
+ LEFT()
+ • get the left most character(s) from a string
+ ○ arguments
+ 1. The original string
+ 2. how many characters you want
  
+ */
+SELECT
+  LEFT('Nyambia', 3);
+SELECT
+  LEFT('omghahalol', 3);
+-- get the 4 rightmost characters
+SELECT
+  RIGHT('omghahalol!', 4);
+-- we could use this to get initials of author's in our books TABLE
+SELECT
+  CONCAT(
+    LEFT(author_fname, 1),
+    '.',
+    LEFT(author_lname, 1),
+    '.'
+  )
+FROM
+  books;
+/*
+ REPEAT 
+ • Get some string and a number, have that string repeated that number of times
+ */
+SELECT
+  REPEAT('Nyambi', 3);
+SELECT
+  REPEAT('ha', 3);
+/*
+ TRIM
+ • Remove spaces that are leading an trailing
+ */
+SELECT
+  TRIM('   Serekunda    ');
   
+-- you can also remove other characters if you specify other characters
+
+-- remove leading 'x'
+SELECT 
+    TRIM(LEADING 'x' FROM 'xxxbarxxx');
+
+-- remove both leading and trailing 'x'
+SELECT 
+    TRIM(BOTH 'x' FROM 'xxxbarxxx');
+-- remove trailing 'x'
+SELECT 
+    TRIM(TRAILING 'x' from 'xxxbarxxx');
+    
+
+    
