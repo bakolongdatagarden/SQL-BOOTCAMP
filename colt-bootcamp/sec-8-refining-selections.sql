@@ -281,5 +281,131 @@ FROM
   books
 ORDER BY
   Author;
-  
-  
+/*
+ # PRACTICE!!!
+ • Asked Deepseek for 9 practice problems to solidify what we've learned so far
+ */
+-- Problem 1: Basic DISTINCT
+-- • Write a query to display all unique author first names from the books table.
+SELECT
+  DISTINCT author_fname
+FROM
+  books;
+-- Problem 2: DISTINCT Combinations
+-- Write a query to show all unique combinations of author first and last names, ordered alphabetically by last name.
+SELECT
+  DISTINCT author_fname,
+  author_lname
+FROM
+  books
+ORDER BY
+  author_lname;
+-- Problem 3: ORDER BY Basics
+-- Write a query to display book titles and their release years, ordered from newest to oldest.
+DESC books;
+SELECT
+  title,
+  released_year
+FROM
+  books
+ORDER BY
+  released_year DESC;
+/*
+ Problem 4: ORDER BY Multiple Columns
+ • Write a query to display author last names, first names, and book titles, ordered by:
+ 1. Last name (A-Z)
+ 2. First name (A-Z)
+ 3. Title (A-Z)
+ */
+SELECT
+  author_lname,
+  author_fname,
+  title
+FROM
+  books
+ORDER BY
+  author_lname,
+  author_fname,
+  title;
+-- Problem 5: ORDER BY Column Position
+-- Write a query to display book titles, release years, and page counts, ordered by the second column (release year) in descending order.
+DESC books;
+SELECT
+  title,
+  released_year,
+  pages
+FROM
+  books
+ORDER BY
+  2 DESC;
+/*
+ -- Problem 6: ORDER BY with Concatenation
+ • Write a query that displays:
+ 1. The full author name (concatenate author_fname and author_lname with a space) as Author, and
+ 2. The book title,
+ • ordered by the full author name (A-Z).
+ */
+SELECT
+  CONCAT_WS(' ', author_fname, author_lname) AS 'Author',
+  title
+FROM
+  books
+ORDER BY
+  Author;
+/*
+ -- Problem 7: DISTINCT with Calculation
+ • Write a query to show all unique combinations of:
+ 1. author_lname and
+ 2. Decade (calculated as FLOOR(released_year/10)*10),
+ • ordered by decade.
+ */
+SELECT
+  author_lname,
+  FLOOR(released_year / 10) * 10 AS decade
+FROM
+  books
+ORDER BY
+  decade;
+/*
+ -- Problem 8: Complex ORDER BY
+ • Write a query to display:
+ 1. Book titles
+ 2. Page counts
+ 3. Release years
+ • Only for books with more than 200 pages, ordered by:
+ 1. Page count (highest to lowest)
+ 2. Release year (oldest to newest)
+ */
+SELECT
+  title,
+  pages,
+  released_year
+FROM
+  books
+WHERE
+  pages > 200
+ORDER BY
+  pages DESC,
+  released_year;
+/*
+ -- Problem 9: Advanced ORDER BY
+ • Write a query to display:
+ 1. Full author name (concatenated first and last name)
+ 2. Book title
+ 3. Release year
+ 
+ • Ordered by:
+ 1. Author's last name length (shortest to longest)
+ 2. Release year (newest to oldest)
+ 3. Title length
+ */
+SELECT
+  CONCAT_WS(' ', author_fname, author_lname),
+  title,
+  released_year
+FROM
+  books
+ORDER BY
+  CHAR_LENGTH(author_lname),
+  released_year DESC,
+  CHAR_LENGTH(title)
