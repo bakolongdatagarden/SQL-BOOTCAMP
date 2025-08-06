@@ -408,4 +408,108 @@ FROM
 ORDER BY
   CHAR_LENGTH(author_lname),
   released_year DESC,
-  CHAR_LENGTH(title)
+  CHAR_LENGTH(title);
+-- #########################################################################
+-- SESSION: 8/6/2025
+-- #########################################################################  
+-- VIDEO: LIMIT
+-- #########################################################################  
+-- Limit allows us to control the number of results we get back 
+-- ↓ This query gets us the first 5 books (unordered) from our original table
+SELECT
+  book_id,
+  title,
+  released_year
+FROM
+  books
+LIMIT
+  5;
+-- let's get the 5 earliest released books 
+-- we'll order by released released_year
+SELECT
+  book_id,
+  title,
+  released_year
+FROM
+  books
+ORDER BY
+  released_year
+LIMIT
+  5;
+-- let's get the 10 most recent books ↓
+SELECT
+  book_id,
+  title,
+  released_year
+FROM
+  books
+ORDER BY
+  released_year DESC
+LIMIT
+  10;
+-- Now let's use two numbers for LIMIT
+-- going from 0-5 (0,5)
+SELECT
+  book_id,
+  title,
+  released_year
+FROM
+  books
+ORDER BY
+  released_year DESC
+LIMIT
+  0, 5;
+-- starting at 1st row instead of 0th row
+SELECT
+  book_id,
+  title,
+  released_year
+FROM
+  books
+ORDER BY
+  released_year DESC
+LIMIT
+  1, 5;
+-- start at row 3 and go for 2 rows
+SELECT
+  book_id,
+  title,
+  released_year
+FROM
+  books
+ORDER BY
+  released_year
+LIMIT
+  3, 2;
+-- the more expanded table to compare with the one above ↑
+SELECT
+  book_id,
+  title,
+  released_year
+FROM
+  books
+ORDER BY
+  released_year
+LIMIT
+  10;
+-- start from row 5 and include 7 results 
+SELECT
+  book_id,
+  title,
+  released_year
+FROM
+  books
+ORDER BY
+  released_year
+LIMIT
+  5, 7;
+-- what if we use a limit number that's out of bounds?
+-- SQL just gives you as many as it can 
+SELECT
+  title
+FROM
+  books
+ORDER BY
+  title
+LIMIT
+  40;
