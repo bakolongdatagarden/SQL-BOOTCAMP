@@ -201,3 +201,85 @@ FROM
   books
 ORDER BY
   released_year;
+SELECT
+  DATABASE();
+-- #########################################################################
+-- VIDEO: MORE ON ORDER BY
+-- #########################################################################
+-- ORDER BY 2 = "order by the second columm"
+SELECT
+  title,
+  author_fname,
+  author_lname
+FROM
+  books
+ORDER BY
+  2;
+-- ORDER BY '#' saves you typing
+-- for example, here's this query ↓
+SELECT
+  book_id,
+  author_fname,
+  author_lname,
+  pages
+FROM
+  books
+ORDER BY
+  pages;
+-- ↓ shorter version, same result
+SELECT
+  book_id,
+  author_fname,
+  author_lname,
+  pages
+FROM
+  books
+ORDER BY
+  4;
+/*
+ Using the ORDER BY # method could be both useful but also could make your code
+ less meaninful and obvious.
+ */
+-- Moving on, we can also ORDER BY 2 columns
+/*
+ In this example, we:
+ 1. Order the table by the author's last name. Now we see all of the repeated last names grouped together.
+ 2. Now to get more specific, we then order by released_year
+ 
+ • For example, there are two books written by Carver listed in order by released year: 
+ - 1981 and 1989
+ */
+SELECT
+  author_lname,
+  released_year,
+  title
+FROM
+  books
+ORDER BY
+  author_lname,
+  released_year;
+-- let's try with DESCENDING released_year
+SELECT
+  author_lname,
+  released_year,
+  title
+FROM
+  books
+ORDER BY
+  author_lname,
+  released_year DESC;
+-- We can also ORDER BY columns that aren't part of the the table, but results or values we've asked for (like ALIASES)
+-- normal query 
+SELECT
+  CONCAT_WS(' ', author_fname, author_lname) AS 'Author'
+FROM
+  books;
+-- ORDER BY 'Author' (our ALIAS for our query)
+SELECT
+  CONCAT_WS(' ', author_fname, author_lname) AS 'Author'
+FROM
+  books
+ORDER BY
+  Author;
+  
+  
